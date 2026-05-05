@@ -6,6 +6,7 @@
   <title>Ferdi Kurniawan</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary-color: #222831;
@@ -100,7 +101,6 @@
       transform: scale(1.15);
     }
 
-    /* Ubah warna ikon secara spesifik */
     .social-links a.instagram i { color: var(--insta-color); }
     .social-links a.facebook i  { color: var(--fb-color); }
     .social-links a.whatsapp i  { color: var(--wa-color); }
@@ -127,27 +127,37 @@
     }
   </style>
 </head>
+
 <body>
   <div class="card">
-    <img src="profilealun.jpg" alt="Foto Ferdi" class="profile-img">
+
+    <!-- 🔥 FIX UTAMA DI SINI -->
+    <img 
+      src="./profilealun.jpg" 
+      alt="Foto Ferdi" 
+      class="profile-img"
+      onerror="this.src='https://via.placeholder.com/150'"
+    >
+
     <h1>Ferdi Kurniawan</h1>
     <p class="tagline">tidak ada opsi menyerah, selagi mata masih terbuka</p>
     <p class="intro">Mari bersilaturahmi melalui platform berikut:</p>
     
     <div class="social-links">
-      <a href="https://instagram.com/ferdi_krn" target="_blank" class="instagram" title="Instagram">
+      <a href="https://instagram.com/ferdi_krn" target="_blank" class="instagram">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="https://www.facebook.com/share/1AMM84PcMx/" target="_blank" class="facebook" title="Facebook">
+      <a href="https://www.facebook.com/share/1AMM84PcMx/" target="_blank" class="facebook">
         <i class="fab fa-facebook-f"></i>
       </a>
-      <a href="https://wa.me/+6285664715402" target="_blank" class="whatsapp" title="WhatsApp">
+      <a href="https://wa.me/6285664715402" target="_blank" class="whatsapp">
         <i class="fab fa-whatsapp"></i>
       </a>
-      <a href="https://youtube.com/@ferdikurniawan-k3d?si=HvmAddGiNUMtGCv6" target="_blank" class="youtube" title="YouTube">
+      <a href="https://youtube.com/@ferdikurniawan-k3d?si=HvmAddGiNUMtGCv6" target="_blank" class="youtube">
         <i class="fab fa-youtube"></i>
       </a>
     </div>
+
   </div>
 </body>
 </html>

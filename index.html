@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #000000;
       --accent: #00fff5;
       --text: #e8e8e8;
       --text-dim: #9a9a9a;
@@ -22,7 +21,7 @@
     }
 
     body {
-      background: var(--bg);
+      background: #000;
       color: var(--text);
       display: flex;
       justify-content: center;
@@ -33,28 +32,30 @@
       padding: 20px;
     }
 
-    .aurora {
+    /* 🔥 BACKGROUND FOTO DI-ZOOM BIAR NGGAK KELIATAN KAKI */
+    body::before {
+      content: '';
       position: absolute;
-      width: 200%;
-      height: 200%;
-      top: -50%;
-      left: -50%;
-      background: radial-gradient(circle at 30% 40%, rgba(0, 255, 245, 0.25) 0%, transparent 60%),
-                  radial-gradient(circle at 70% 60%, rgba(0, 255, 245, 0.2) 0%, transparent 70%);
-      filter: blur(50px);
-      animation: auroraMove 18s ease-in-out infinite alternate;
+      inset: 0;
+      background: url('./profilealun.jpg') center 20% / cover no-repeat; /* 20% = ambil bagian atas */
+      filter: blur(20px) brightness(0.25); /* digelapin biar teks kebaca */
+      transform: scale(1.3); /* di-zoom 130% biar crop makin deket */
       z-index: 0;
-      will-change: transform;
     }
 
-    @keyframes auroraMove {
-      0% { transform: translate(0, 0) rotate(0deg); opacity: 0.7; }
-      100% { transform: translate(-5%, 5%) rotate(8deg); opacity: 0.9; }
+    /* Overlay tosca tipis */
+    body::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 255, 245, 0.12) 0%, transparent 70%);
+      z-index: 0;
     }
 
     .card {
       position: relative;
-      background: #0d1117;
+      background: rgba(13, 17, 23, 0.8);
+      backdrop-filter: blur(12px);
       border: 1px solid rgba(0, 255, 245, 0.3);
       box-shadow: 0 0 25px rgba(0, 255, 245, 0.15);
       border-radius: 20px;
@@ -70,6 +71,7 @@
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
+      object-position: center 15%; /* foto profile juga di-crop atas biar fokus muka */
       border: 2px solid var(--accent);
       margin-bottom: 18px;
       box-shadow: 0 0 15px rgba(0, 255, 245, 0.5);
@@ -79,48 +81,31 @@
     .tagline { font-size: 14px; font-style: italic; color: var(--text-dim); margin-bottom: 20px; }
     .intro { font-size: 15px; margin-bottom: 25px; color: var(--text); }
 
-    /* 🔗 Sosial - Warna Asli Brand */
-    .social-links { 
-      display: flex; 
-      justify-content: center; 
-      gap: 16px; 
-    }
-    
+    .social-links { display: flex; justify-content: center; gap: 16px; }
     .social-links a {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 20px; 
-      width: 48px; 
-      height: 48px;
-      display: flex; 
-      align-items: center; 
-      justify-content: center;
-      border-radius: 50%; 
-      text-decoration: none;
+      font-size: 20px; width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; text-decoration: none;
       transition: all 0.3s ease;
     }
 
-    /* Warna Icon Sesuai Brand */
     .social-links a .fa-instagram { color: #E4405F; }
     .social-links a .fa-facebook-f { color: #1877F2; }
     .social-links a .fa-whatsapp { color: #25D366; }
     .social-links a .fa-youtube { color: #FF0000; }
 
-    /* Efek Hover: Semua jadi tosca */
     .social-links a:hover {
       background: var(--accent);
       border-color: var(--accent);
       transform: translateY(-3px);
       box-shadow: 0 0 15px rgba(0, 255, 245, 0.6);
     }
-    
-    .social-links a:hover i {
-      color: #000;
-    }
+    .social-links a:hover i { color: #000; }
   </style>
 </head>
 <body>
-  <div class="aurora"></div>
   <div class="card">
     <img src="./profilealun.jpg" onerror="this.src='profile.webp'" alt="Foto Ferdi" class="profile-img">
     <h1>Ferdi Kurniawan</h1>

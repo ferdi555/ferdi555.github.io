@@ -6,16 +6,12 @@
   <title>Ferdi Kurniawan</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
   <style>
     :root {
-      --primary-color: #222831;
-      --secondary-color: #393E46;
-      --text-color: #EEEEEE;
-      --insta-color: #E1306C;
-      --fb-color: #1877F2;
-      --wa-color: #25D366;
-      --yt-color: #FF0000;
+      --bg: #000000;
+      --accent: #00fff5;
+      --text: #e8e8e8;
+      --text-dim: #9a9a9a;
     }
 
     * {
@@ -26,138 +22,116 @@
     }
 
     body {
-      background-color: var(--primary-color);
-      color: var(--text-color);
+      background: var(--bg);
+      color: var(--text);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 30px 20px;
+      overflow: hidden;
+      position: relative;
+      padding: 20px;
+    }
+
+    .aurora {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: radial-gradient(circle at 30% 40%, rgba(0, 255, 245, 0.25) 0%, transparent 60%),
+                  radial-gradient(circle at 70% 60%, rgba(0, 255, 245, 0.2) 0%, transparent 70%);
+      filter: blur(50px);
+      animation: auroraMove 18s ease-in-out infinite alternate;
+      z-index: 0;
+      will-change: transform;
+    }
+
+    @keyframes auroraMove {
+      0% { transform: translate(0, 0) rotate(0deg); opacity: 0.7; }
+      100% { transform: translate(-5%, 5%) rotate(8deg); opacity: 0.9; }
     }
 
     .card {
-      background-color: var(--secondary-color);
-      padding: 40px;
-      border-radius: 16px;
-      max-width: 460px;
+      position: relative;
+      background: #0d1117;
+      border: 1px solid rgba(0, 255, 245, 0.3);
+      box-shadow: 0 0 25px rgba(0, 255, 245, 0.15);
+      border-radius: 20px;
+      padding: 35px;
+      max-width: 420px;
       width: 100%;
-      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
       text-align: center;
+      z-index: 1;
     }
 
     .profile-img {
-      width: 150px;
-      height: 160px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
       object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid var(--text-color);
-      margin-bottom: 10px;
-      transition: transform 0.3s ease;
+      border: 2px solid var(--accent);
+      margin-bottom: 18px;
+      box-shadow: 0 0 15px rgba(0, 255, 245, 0.5);
     }
 
-    .profile-img:hover {
-      transform: scale(1.05);
-    }
+    h1 { color: var(--accent); font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+    .tagline { font-size: 14px; font-style: italic; color: var(--text-dim); margin-bottom: 20px; }
+    .intro { font-size: 15px; margin-bottom: 25px; color: var(--text); }
 
-    h1 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 10px;
+    /* 🔗 Sosial - Warna Asli Brand */
+    .social-links { 
+      display: flex; 
+      justify-content: center; 
+      gap: 16px; 
     }
-
-    .tagline {
-      font-size: 14px;
-      font-style: italic;
-      color: #ccc;
-      margin-bottom: 20px;
-    }
-
-    .intro {
-      font-size: 14px;
-      color: #ddd;
-      margin-bottom: 25px;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
+    
     .social-links a {
-      background-color: #fffffff4;
-      font-size: 22px;
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 20px; 
+      width: 48px; 
+      height: 48px;
+      display: flex; 
+      align-items: center; 
       justify-content: center;
-      border-radius: 50%;
-      transition: transform 0.3s ease;
+      border-radius: 50%; 
+      text-decoration: none;
+      transition: all 0.3s ease;
     }
 
+    /* Warna Icon Sesuai Brand */
+    .social-links a .fa-instagram { color: #E4405F; }
+    .social-links a .fa-facebook-f { color: #1877F2; }
+    .social-links a .fa-whatsapp { color: #25D366; }
+    .social-links a .fa-youtube { color: #FF0000; }
+
+    /* Efek Hover: Semua jadi tosca */
     .social-links a:hover {
-      transform: scale(1.15);
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 0 15px rgba(0, 255, 245, 0.6);
     }
-
-    .social-links a.instagram i { color: var(--insta-color); }
-    .social-links a.facebook i  { color: var(--fb-color); }
-    .social-links a.whatsapp i  { color: var(--wa-color); }
-    .social-links a.youtube i   { color: var(--yt-color); }
-
-    @media (max-width: 480px) {
-      .card {
-        padding: 30px 20px;
-      }
-
-      h1 {
-        font-size: 20px;
-      }
-
-      .tagline, .intro {
-        font-size: 13px;
-      }
-
-      .social-links a {
-        width: 38px;
-        height: 38px;
-        font-size: 18px;
-      }
+    
+    .social-links a:hover i {
+      color: #000;
     }
   </style>
 </head>
-
 <body>
+  <div class="aurora"></div>
   <div class="card">
-
-    <!-- 🔥 FIX UTAMA DI SINI -->
-    <img 
-      src="./profilealun.jpg" 
-      alt="Foto Ferdi" 
-      class="profile-img"
-      onerror="this.src='https://via.placeholder.com/150'"
-    >
-
+    <img src="./profilealun.jpg" onerror="this.src='profile.webp'" alt="Foto Ferdi" class="profile-img">
     <h1>Ferdi Kurniawan</h1>
     <p class="tagline">tidak ada opsi menyerah, selagi mata masih terbuka</p>
     <p class="intro">Mari bersilaturahmi melalui platform berikut:</p>
-    
     <div class="social-links">
-      <a href="https://instagram.com/ferdi_krn" target="_blank" class="instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com/share/1AMM84PcMx/" target="_blank" class="facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://wa.me/6285664715402" target="_blank" class="whatsapp">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="https://youtube.com/@ferdikurniawan-k3d?si=HvmAddGiNUMtGCv6" target="_blank" class="youtube">
-        <i class="fab fa-youtube"></i>
-      </a>
+      <a href="https://instagram.com/ferdi_krn" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/1AMM84PcMx/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://wa.me/+6285664715402" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://youtube.com/@ferdikurniawan-k3d" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
-
   </div>
 </body>
 </html>

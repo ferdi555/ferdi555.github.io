@@ -32,18 +32,16 @@
       padding: 20px;
     }
 
-    /* BACKGROUND FOTO DI-ZOOM + CROP ATAS */
     body::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: url('./profilealun.jpg') center 15% / cover no-repeat; /* 15% makin ke atas */
+      background: url('./profilealun.jpg') center 15% / cover no-repeat;
       filter: blur(20px) brightness(0.25);
-      transform: scale(1.5); /* background di-zoom 150% */
+      transform: scale(1.5);
       z-index: 0;
     }
 
-    /* Overlay tosca tipis */
     body::after {
       content: '';
       position: absolute;
@@ -66,16 +64,15 @@
       z-index: 1;
     }
 
-    /* FOTO PROFILE DI-ZOOM BIAR MUKA DOANG */
     .profile-img {
       width: 120px;
       height: 120px;
-      border-radius: 30%;
+      border-radius: 40%;
       object-fit: cover;
-      object-position: center 10%; /* 10% = ambil bagian atas banget */
-      transform: scale(1.2); /* di-zoom 140% */
+      object-position: center 50%;
+      transform: scale(1.2);
       border: 2px solid var(--accent);
-      margin-bottom: 25px;
+      margin-bottom: 18px;
       box-shadow: 0 0 15px rgba(0, 255, 245, 0.5);
     }
 
@@ -83,7 +80,12 @@
     .tagline { font-size: 14px; font-style: italic; color: var(--text-dim); margin-bottom: 20px; }
     .intro { font-size: 15px; margin-bottom: 25px; color: var(--text); }
 
-    .social-links { display: flex; justify-content: center; gap: 16px; }
+    .social-links { 
+      display: flex; 
+      justify-content: center; 
+      gap: 14px;
+      flex-wrap: wrap; 
+    }
     .social-links a {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -97,6 +99,7 @@
     .social-links a .fa-facebook-f { color: #1877F2; }
     .social-links a .fa-whatsapp { color: #25D366; }
     .social-links a .fa-youtube { color: #FF0000; }
+    .social-links a .fa-linkedin-in { color: #0A66C2; }
 
     .social-links a:hover {
       background: var(--accent);
@@ -105,20 +108,48 @@
       box-shadow: 0 0 15px rgba(0, 255, 245, 0.6);
     }
     .social-links a:hover i { color: #000; }
+
+    /* TOMBOL CV */
+    .btn-cv {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-cv:hover {
+      box-shadow: 0 0 20px rgba(0, 255, 245, 0.6);
+      transform: translateY(-2px);
+    }
+    .btn-cv i {
+      margin-right: 8px;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <img src="./profilealun.jpg" onerror="this.src='profile.webp'" alt="Foto Ferdi" class="profile-img">
+    <img src="./profile.webp" onerror="this.src='profilealun.jpg'" alt="Foto Ferdi" class="profile-img">
     <h1>Ferdi Kurniawan</h1>
-    <p class="tagline">tidak ada opsi menyerah, selagi mata masih terbuka</p>
+    <p class="tagline">tidak ada opsi menyerah,
+                                            selagi mata masih terbuka</p>
     <p class="intro">Mari bersilaturahmi melalui platform berikut:</p>
     <div class="social-links">
       <a href="https://instagram.com/ferdi_krn" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="https://www.facebook.com/share/1AMM84PcMx/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
       <a href="https://wa.me/+6285664715402" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       <a href="https://youtube.com/@ferdikurniawan-k3d" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://linkedin.com/in/username-kamu" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
     </div>
+    
+    <!-- TOMBOL CV PINDAH KE SINI -->
+    <a href="./CV-Ferdi.pdf" class="btn-cv" target="_blank">
+      <i class="fas fa-file-download"></i> Download CV
+    </a>
   </div>
 </body>
 </html>
